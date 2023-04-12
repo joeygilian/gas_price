@@ -69,7 +69,7 @@ func (r *postgresqlGasPriceRepository) Store(ctx context.Context, gp *domain.Gas
 }
 
 func (r *postgresqlGasPriceRepository) Update(ctx context.Context, gp *domain.GasPrice) error {
-	_, err := r.Conn.Exec("UPDATE gas_price SET litre=$1, premium=$2, pertalite=$3 WHERE id=$4", gp.Litre, gp.Premium, gp.Pertalite, gp.ID)
+	_, err := r.Conn.Exec("UPDATE gas_prices SET litre=$1, premium=$2, pertalite=$3 WHERE id=$4", gp.Litre, gp.Premium, gp.Pertalite, gp.ID)
 	if err != nil {
 		return err
 	}
